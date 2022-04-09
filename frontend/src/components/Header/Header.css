@@ -1,0 +1,22 @@
+.navbar{
+    display: flex;
+    width: 100%;
+    padding: 3rem 0 3rem 0;
+    background:skyblue
+}
+
+.navbar>ul{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.navbar>ul>li:hover{
+    color: red;
+    cursor: pointer;
+
+}
