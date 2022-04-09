@@ -1,74 +1,76 @@
-const Product = require("../models/product.model");
+const Book = require("../models/Book.model");
 const ErrorHander = require("../utils/errorHander");
 const catchAsynError = require("../middleware/catchAsyncErrors");
-const myQueryApi = require("../utils/myapiFeatures");
+const myQueryApi = require("../utils/apifeatures");
 
-//Create a product ---> Admin
-exports.createProduct = catchAsynError(async (req, res) => {
+//Create a Book ---> Admin
+exports.createBook = catchAsynError(async (req, res) => {
   req.body.user = req.user.id;
-  const product = await Product.create(req.body);
+  const book = await Book.create(req.body);
   res.status(201).json({
     sucsses: true,
-    product,
+    book,
   });
 });
 
-// Get All Products
-exports.getAllProducts = catchAsynError(async (req, res) => {
+
+// Get All Books
+exports.getAllBooks = catchAsynError(async (req, res) => {
   const resultPerPage = 5;
-  const productCount = await Product.countDocuments();
-  const myQueries = new myQueryApi(Product.find(), req.query)
+  const bookCount = await Book.countDocuments();
+  const myQueries = new myQueryApi(Book.find(), req.query)
     .search()
     .filter()
     .pagination(resultPerPage);
-
-  const products = await myQueries.query;
-
+  const books = await myQueries.query;
   res.status(200).json({
     sucsses: true,
-    products,
-    productCount,
+    books,
+    bookCount,
   });
 });
 
-//Get One Product
-exports.getoneProduct = catchAsynError(async (req, res, next) => {
-  let product = await Product.findById(req.params.id);
-  if (!product) {
-    return next(new ErrorHander("Product not found", 404));
+
+//Get One Book
+exports.getoneBook = catchAsynError(async (req, res, next) => {
+  let book = await Book.findById(req.params.id);
+  if (!book) {
+    return next(new ErrorHander("Book not found", 404));
   }
-  product = await Product.findById(req.params.id);
+  book = await Book.findById(req.params.id);
 
   res.status(200).json({
     sucsses: true,
-    product,
+    book,
   });
 });
 
-//Update a product ---> Admin
-exports.updateProduct = catchAsynError(async (req, res, next) => {
-  let product = await Product.findById(req.params.id);
-  if (!product) {
-    return next(new ErrorHander("Product not found", 404));
+
+//Update a Book ---> Admin
+exports.updateBook = catchAsynError(async (req, res, next) => {
+  let book = await Book.findById(req.params.id);
+  if (!book) {
+    return next(new ErrorHander("Book not found", 404));
   }
-  product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+  book = await book.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
   res.status(200).json({
     sucsses: true,
-    product,
+    book,
   });
 });
 
-//Delete a product ---> Admin
-exports.deleteProduct = catchAsynError(async (req, res, next) => {
-  let product = await Product.findById(req.params.id);
-  if (!product) {
-    return next(new ErrorHander("Product not found", 404));
+
+//Delete a Book ---> Admin
+exports.deleteBook = catchAsynError(async (req, res, next) => {
+  let book = await Book.findById(req.params.id);
+  if (!book) {
+    return next(new ErrorHander("Book not found", 404));
   }
-  product = await Product.findByIdAndDelete(req.params.id);
+  book = await Book.findByIdAndDelete(req.params.id);
   res.status(200).json({
     sucsses: true,
-    message: "Product is deleted",
+    message: "Book is deleted",
   });
 });

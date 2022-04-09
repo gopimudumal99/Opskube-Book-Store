@@ -1,7 +1,7 @@
 const app = require("./app");
 const dotenv = require("dotenv");
 const connectDataBase = require('./configs/db')
-
+const errorMiddleware = require("./middleware/error");
 
 //unhandle UnCaught Exeception
 process.on("uncaughtException", (err) => {
@@ -21,6 +21,10 @@ connectDataBase();
 const server = app.listen(process.env.PORT, () => {
   console.log(`Listing on port http://localhost:${process.env.PORT}`);
 });
+
+
+// middleware for Errors
+app.use(errorMiddleware)
 
 
 // Unhandle Promise Rejections
