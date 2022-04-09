@@ -52,7 +52,7 @@ exports.updateBook = catchAsynError(async (req, res, next) => {
   if (!book) {
     return next(new ErrorHander("Book not found", 404));
   }
-  book = await book.findByIdAndUpdate(req.params.id, req.body, {
+  book = await Book.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
   res.status(200).json({
@@ -74,3 +74,5 @@ exports.deleteBook = catchAsynError(async (req, res, next) => {
     message: "Book is deleted",
   });
 });
+
+

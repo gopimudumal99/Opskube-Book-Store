@@ -4,53 +4,45 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Please Enter Your Name"],
-    maxlength: [30, "Name cannot exceed 30 cherecters"],
-    minlength: [4, "Name should have more than 4 charecters"],
-    },
-    
-  email: {
-    type: String,
-    required: [true, "Please Enter Your Email"],
-    unique: true,
-    validate: [validator.isEmail, "Please Enter a valid Email"],
-  },
-  password: {
-    type: String,
-    required: [true, "Please Enter Your Password"],
-    minlength: [8, "password should be greter than 8 charecters"],
-    select: false,
-    },
-  
-  avatar: {
-    public_id: {
+const userSchema = new mongoose.Schema(
+  {
+    name: {
       type: String,
-      required: true,
+      required: [true, "Please Enter Your Name"],
+      maxlength: [30, "Name cannot exceed 30 cherecters"],
+      minlength: [4, "Name should have more than 4 charecters"],
     },
-    url: {
+
+    email: {
       type: String,
-      required: true,
+      required: [true, "Please Enter Your Email"],
+      unique: true,
+      validate: [validator.isEmail, "Please Enter a valid Email"],
+    },
+    password: {
+      type: String,
+      required: [true, "Please Enter Your Password"],
+      minlength: [8, "password should be greter than 8 charecters"],
+      select: false,
+    },
+
+    role: {
+      type: String,
+      default: "user",
     },
   },
-  role: {
-    type: String,
-    default: "user",
-  },
+  { versionKey: false }
+);
 
-  resetPasswordToken: String,
-  resetPasswordExpire: Date,
-});
-
-//hash password
-userSchema.pre("save", function (next) {
+// hash password
+userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
   }
-  this.password = bcrypt.hashSync(this.password, 8);
+
+  this.password = await bcrypt.hash(this.password, 10);
 });
+
 
 //JWT TOKEN
 userSchema.methods.getJWTToken = function () {
