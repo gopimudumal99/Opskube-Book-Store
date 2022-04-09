@@ -95,8 +95,8 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   }
 
   if (req.body.status === "Shipped") {
-    order.orderItems.forEach(async (order) => {
-      await updateStock(order.book, order.quantity);
+    order.orderItems.forEach(async (o) => {
+      await updateStock(o.book, o.quantity);
     });
   }
   order.orderStatus = req.body.status;
