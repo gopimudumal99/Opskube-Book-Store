@@ -1,0 +1,80 @@
+.productDetails{
+    width: 100vw;
+    max-width:100%;
+    padding: 1vmax;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.productDetails>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.productDetails>div:last-child{
+    align-items: flex-start; 
+}
+
+.detailsBlock-1 >h2{
+    color: rgb(54, 54, 54);
+    text-transform: capitalize;
+}
+
+.detailsBlock-1> p {
+    color: rgba(54 ,54 ,54, 0.582);
+    font-size: 13px;
+}
+
+.detailsBlock-2>h1 {
+    color: rgba(17,17,17,0.795);
+    margin-top: -10px;
+}
+
+.detailsBlock-2-1{
+    display: flex;
+    align-items: center;
+}
+
+.detailsBlock-2-1-1>button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.616);
+    padding:0.5vmax;
+    cursor: pointer;
+    color: white;
+    transition: all 05s;
+
+}
+
+.detailsBlock-2-1-1>button:hover {
+    background-color: rgba(0, 0, 0, 0.816);
+}
+
+.detailsBlock-2-1-1>input {
+    border: none;
+    padding: 0.5vmax;
+    width: 1vmax;
+    text-align: center;
+    outline: none;
+    color: rgba(0, 0, 0, 0.74);
+
+}
+
+.detailsBlock-2-1>button:last-child {
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+    background-color: tomato;
+    border-radius: 20px;
+    padding: 0.5vmax 2vmax;
+    margin: 1vmax;
+    outline: none;
+}
+
+.detailsBlock-2-1>button:last-child:hover{
+    background-color: rgb(214,84,61);
+}

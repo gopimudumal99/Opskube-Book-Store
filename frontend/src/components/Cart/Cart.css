@@ -1,0 +1,105 @@
+
+.cartPage{
+    padding: 5vmax;
+}
+
+.cartHeader{
+    background-color: tomato;
+    width:90%;
+    box-sizing: border-box;
+    margin: auto;
+    display: grid;
+    color:white;
+    grid-template-columns: 4fr 1fr 1fr;
+    font-size: 20px;
+}
+
+.cartHeader>p{
+    margin: 10px;
+}
+
+.cartHeader>p:last-child{
+    text-align: end;
+}
+
+.cartContainer{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+}
+
+.cartInput{
+    height: 8vmax;
+    display: flex;
+    align-items: center;
+}
+
+.cartInput>button{
+    border: none;
+    background-color: rgba(0,0,0,0.616);
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+    padding: 0.5vmax;
+}
+
+.cartInput>button:hover {
+    background-color: rgba(0, 0, 0, 0.516);
+}
+
+.cartInput>input{
+    border: none;
+    width: 2vmax;
+    padding: 0.5vmax;
+    outline: none;
+    text-align: center;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.76);
+}
+
+.cartSubTotal{
+    display: flex;
+    padding: 0.5vmax;
+    height: 8vmax;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 25px;
+    justify-content: flex-end;
+    color: rgba(0,0,0,0.75);
+}
+
+.cartGrossProfit{
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+}
+
+.cartGrossProfiBox{
+    border-top: 3px solid tomato;
+    box-sizing: border-box;
+    margin: 1vmax 4vmax;
+    box-sizing: border-box;
+    display: flex;
+    padding: 2vmax 0;
+    font-size: 25px;
+    justify-content: space-between;
+
+}
+
+.checkOutBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkOutBtn >button{
+    background-color: tomato;
+    color: white;
+    border: none;
+    padding: 0.8vmax 4vmax;
+    cursor: pointer;
+    margin: 1vmax 4vmax;
+    width: 50%;
+    font-size:20px ;
+    border-radius: 30px;
+}
+

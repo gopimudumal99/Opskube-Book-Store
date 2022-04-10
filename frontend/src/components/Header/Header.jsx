@@ -15,7 +15,7 @@ function Header() {
           <Link to="/login">Login</Link>
         </li>
         <li>
-          <a href="/">Cart</a>
+          <Link to="/cart">Cart</Link>
         </li>
         <li>
           <a href="/">Order</a>

@@ -37,10 +37,10 @@ function LoginSingUp() {
   }
 
   const registerDataChange = (e) => { 
-    if (e.target.avatar = "avatar") {
+    if (e.target.avatar === "avatar") {
       const reader = new FileReader()
       reader.onload = () => { 
-        if (reader.readyState == 2) { 
+        if (reader.readyState === 2) { 
           setAvatarPreview(reader.result)
           setAvatar(reader.result);
         }
@@ -52,14 +52,14 @@ function LoginSingUp() {
     }
   }
   const switchTabs = (e, tab) => {
-    if (tab == "login") {
+    if (tab === "login") {
       switchTab.current.classList.add("shiftToNeutral");
       switchTab.current.classList.remove("shiftToRight");
 
       registerTab.current.classList.remove("shiftToNeutralForm");
       loginTab.current.classList.remove("shiftToLeft");
     }
-    if (tab == "register") {
+    if (tab === "register") {
       switchTab.current.classList.remove("shiftToNeutral");
       switchTab.current.classList.add("shiftToRight");
 

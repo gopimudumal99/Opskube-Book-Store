@@ -1,0 +1,28 @@
+.cartItemCard{
+    display: flex;
+    padding: 1vmax;
+    height: 8vmax;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.cartItemCard>img{
+    width: 5vmax;
+}
+
+.cartItemCard>div{
+    display: flex;
+    margin: 0.3vmax 1vmax;
+    flex-direction: column;
+}
+
+.cartItemCard>div>a{
+    font-size: 30px;
+    color:rgba(24,24,24,0.8915);
+    text-decoration: none;
+}
+
+.cartItemCard>div>p{
+    color :tomato;
+    cursor:pointer
+}

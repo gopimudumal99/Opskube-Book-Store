@@ -8,6 +8,8 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 1rem;
     border-radius: 15px;
+    text-decoration: none;
+    color: #000;
 }
 
 .book > img{
