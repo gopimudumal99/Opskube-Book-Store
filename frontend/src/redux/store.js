@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { bookReducer } from './reducers/bookReducer';
+import { bookReducer } from "./reducers/bookReducer";
 
 const rootReducer = combineReducers({
-  bookReducer
+  books: bookReducer,
 });
 
 const initialState = {};
@@ -18,4 +18,3 @@ const store = createStore(
 );
 
 export default store;
-

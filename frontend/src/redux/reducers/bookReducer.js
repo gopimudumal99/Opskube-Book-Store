@@ -5,7 +5,7 @@ import {
   CLEAR_ERRORS,
 } from "../constants/constants";
 
-export const bookReducer = (state = { books: [] }, action) => {
+export const bookReducer = (state = {books:[]} , action) => {
   switch (action.type) {
     case ALL_BOOKS_REQESTS:
       return {
@@ -15,8 +15,10 @@ export const bookReducer = (state = { books: [] }, action) => {
     case ALL_BOOKS_SUCCESS:
       return {
         loading: false,
-        books: action.payload.books,
         booksCount: action.payload.booksCount,
+        resultPerPage: action.payload.resultPerPage,
+        filterProductCount: action.payload.filterProductCount,
+        books: action.payload.books,
       };
     case ALL_BOOKS_FAIL:
       return {

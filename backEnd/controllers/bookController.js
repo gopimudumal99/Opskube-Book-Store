@@ -15,18 +15,23 @@ exports.createBook = catchAsynError(async (req, res) => {
 
 
 // Get All Books
-exports.getAllBooks = catchAsynError(async (req, res) => {
-  const resultPerPage = 5;
-  const bookCount = await Book.countDocuments();
-  const myQueries = new myQueryApi(Book.find(), req.query)
+exports.getAllBooks = catchAsynError(async (req, res,next) => {
+  const resultPerPage = 8;
+  const booksCount = await Book.countDocuments();
+  const myQueries = new myQueryApi(Book.find({}), req.query)
     .search()
-    .filter()
-    .pagination(resultPerPage);
-  const books = await myQueries.query;
+    .filter();
+  let books = await myQueries.query.clone();
+  let filterProductCount = books.length;
+  myQueries.pagination(resultPerPage);
+  books = await myQueries.query;
+
   res.status(200).json({
     sucsses: true,
     books,
-    bookCount,
+    booksCount,
+    resultPerPage,
+    filterProductCount
   });
 });
 
