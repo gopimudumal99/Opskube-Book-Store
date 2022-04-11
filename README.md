@@ -93,4 +93,6 @@ If you have any feedback, please reach out to us at gopimudumal99@gmail.com
 
 ![p6.png](https://i.postimg.cc/0NWBCY8X/p6.png)
 
+![p7.png](https://i.postimg.cc/cJXVbqcm/p7.png)
+
 ![p8.png](https://i.postimg.cc/zf6kB0DN/p8.png)
