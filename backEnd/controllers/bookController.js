@@ -5,7 +5,6 @@ const myQueryApi = require("../utils/apifeatures");
 
 //create a book
 exports.createBook = catchAsynError(async (req, res) => {
-  req.body.user = req.user.id;
   const book = await Book.create(req.body);
   res.status(201).json({
     sucsses: true,
