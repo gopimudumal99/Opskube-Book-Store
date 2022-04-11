@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MetaData from "../Navbar/MetaData";
+
 import './Search.css'
 
 function Search() {
@@ -15,17 +17,21 @@ function Search() {
         }
     }
   return (
-    <div className="search">
-      <form action="" className="searchBox" onSubmit={searchSubmitHandler}>
-        <input
-          type="text"
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-          placeholder="Search a Book...."
-        />
-        <input type="submit" value="Search" />
-      </form>
-    </div>
+    <>
+      <MetaData title="Search for Books" />
+
+      <div className="search">
+        <form action="" className="searchBox" onSubmit={searchSubmitHandler}>
+          <input
+            type="text"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            placeholder="Search a Book...."
+          />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
+    </>
   );
 }
 

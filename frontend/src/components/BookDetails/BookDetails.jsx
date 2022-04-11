@@ -3,7 +3,9 @@ import "./BookDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getBookDetails } from "./../../redux/action/productActions";
 import { useParams } from "react-router-dom";
-import {addItemsToCart} from "../../redux/action/cartActions"
+import { addItemsToCart } from "../../redux/action/cartActions";
+import MetaData from "../Navbar/MetaData";
+
 function BookDetails() {
   const params = useParams();
   const dispatch = useDispatch();
@@ -34,6 +36,8 @@ function BookDetails() {
   }, [dispatch, params.id]);
   return (
     <div className="productDetails">
+      <MetaData title="Book" />
+
       <div>
         {book.images && (
           <div>

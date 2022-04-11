@@ -1,8 +1,12 @@
 .navbar{
     display: flex;
-    width: 100%;
-    padding: 3rem 0 3rem 0;
-    background:skyblue
+    width: 90%;
+    padding: 1rem 0 1rem 0;
+    background:tomato;
+    color: white;
+    justify-content: center;
+    margin: auto;
+    border-radius: 20px;
 }
 
 .navbar>ul{
@@ -10,7 +14,7 @@
     width: 100%;
     justify-content: space-around;
     list-style: none;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 600;
     text-transform: capitalize;
 }
@@ -19,4 +23,9 @@
     color: red;
     cursor: pointer;
 
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }

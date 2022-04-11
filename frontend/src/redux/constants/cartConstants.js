@@ -1,1 +1,7 @@
 export const ADD_TO_CART = "ADD_TO_CART";
+
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+
+export const SAVE_SHIPING_INFO = "SAVE_SHIPING_INFO";
+
+export const SAVE_ORDER_DETAILS = "SAVE_ORDER_DETAILS";

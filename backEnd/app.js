@@ -9,8 +9,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Router Import
 const book = require('./routes/bookRoute')
-const user = require("./routes/userRoute")
-const order = require('./routes/orederRoute')
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -23,8 +21,6 @@ app.use(function (req, res, next) {
 
 
 app.use("/api/v1", book);
-app.use("/api/v1", user)
-app.use('/api/v1',order)
 
 
 

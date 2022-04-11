@@ -3,7 +3,7 @@ const ErrorHander = require("../utils/errorHander");
 const catchAsynError = require("../middleware/catchAsyncErrors");
 const myQueryApi = require("../utils/apifeatures");
 
-//Create a Book ---> Admin
+//create a book
 exports.createBook = catchAsynError(async (req, res) => {
   req.body.user = req.user.id;
   const book = await Book.create(req.body);
@@ -51,7 +51,7 @@ exports.getoneBook = catchAsynError(async (req, res, next) => {
 });
 
 
-//Update a Book ---> Admin
+//Update a Book 
 exports.updateBook = catchAsynError(async (req, res, next) => {
   let book = await Book.findById(req.params.id);
   if (!book) {
@@ -67,7 +67,7 @@ exports.updateBook = catchAsynError(async (req, res, next) => {
 });
 
 
-//Delete a Book ---> Admin
+//Delete a Book 
 exports.deleteBook = catchAsynError(async (req, res, next) => {
   let book = await Book.findById(req.params.id);
   if (!book) {

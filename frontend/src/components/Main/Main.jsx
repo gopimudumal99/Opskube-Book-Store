@@ -6,6 +6,9 @@ import "./Main.css";
 import Loader from "../loader/Loader";
 import { useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
+import Error from "./../Error/Error";
+import MetaData from "../Navbar/MetaData";
+
 function Main() {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,33 +27,39 @@ function Main() {
   }, [dispatch, keyword, currentPage]);
 
   let count = filterProductCount;
-  
   return loading ? (
     <Loader />
   ) : (
-    <div className="main">
-      <div className="main-container">
-        {books && books.map((book) => <Book book={book} key={book._id} />)}
-      </div>
-      {resultPerPage < count && (
-        <div className="paginationBox">
-          <Pagination
-            activePage={currentPage}
-            itemsCountPerPage={resultPerPage}
-            totalItemsCount={booksCount}
-            onChange={setCurrentPageNo}
-            nextPageText="Next"
-            prevPageText="Prev"
-            itemClass="page-item"
-            linkClass="page-link"
-            activeClass="pageItemActive"
-            activeLinkClass="pageLinkActive"
-            firstPageText="1st"
-            lastPageText="Last"
-          />
+    <>
+      <MetaData title="Books" />
+      <div className="main">
+        <div className="main-container">
+          {books.length > 0 ? (
+            books.map((book) => <Book book={book} key={book._id} />)
+          ) : (
+            <Error />
+          )}
         </div>
-      )}
-    </div>
+        {resultPerPage < count && (
+          <div className="paginationBox">
+            <Pagination
+              activePage={currentPage}
+              itemsCountPerPage={resultPerPage}
+              totalItemsCount={booksCount}
+              onChange={setCurrentPageNo}
+              nextPageText="Next"
+              prevPageText="Prev"
+              itemClass="page-item"
+              linkClass="page-link"
+              activeClass="pageItemActive"
+              activeLinkClass="pageLinkActive"
+              firstPageText="1st"
+              lastPageText="Last"
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

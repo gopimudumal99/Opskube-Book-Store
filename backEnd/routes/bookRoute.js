@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const {
   getAllBooks,
   getoneBook,
@@ -12,11 +11,13 @@ const {
 router.route("/books").get(getAllBooks);
 router
   .route("/books/new")
-  .post(isAuthenticatedUser, authorizeRoles("admin"), createBook);
+  .post(createBook);
 router
-  .route("/books/:id")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), updateBook)
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteBook)
+  .route("/books/book/:id")
+  .put(updateBook)
+  .delete(deleteBook)
   .get(getoneBook);
+
+router.route("/book/:id").get(getoneBook);
 
 module.exports = router;

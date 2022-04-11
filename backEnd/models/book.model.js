@@ -20,15 +20,11 @@ const bookSchema = new mongoose.Schema(
       required: [true, "Please Enter Book pice"],
       maxlength: [6, "price not excced 6 charecter"],
     },
-    rating: {
-      type: Number,
-      default: 0,
-    },
     images: [
       {
         public_id: {
           type: String,
-          required: true,
+          default:"public_id"
         },
         url: {
           type: String,
@@ -44,32 +40,7 @@ const bookSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please Enter book stock"],
       maxlength: [10, "stock cannot excced 4 charecter"],
-      default: 1,
-    },
-    numOfReviews: {
-      type: Number,
-      default: 0,
-    },
-    reviews: [
-      {
-        name: {
-          type: String,
-          required: true,
-        },
-        rating: {
-          type: Number,
-          required: true,
-        },
-        comment: {
-          type: String,
-          required: true,
-        },
-      },
-    ],
-    user: {
-      type: mongoose.Schema.ObjectId,
-      ref: "User",
-      required: true,
+      default: 5,
     },
     createdAt: {
       type: Date,
